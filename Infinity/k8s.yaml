@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: infinity-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: infinity
+  template:
+    metadata:
+      labels:
+        app: infinity
+    spec:
+      containers:
+      - name: infinity
+        image: turok/infinity:latest
+        ports:
+        - containerPort: 80
+
+
