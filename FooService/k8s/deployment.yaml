@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: foo
-        image: turok/tt-foo:latest
+        image: turok/tt-foo
         ports:
         - containerPort: 4567
