@@ -17,3 +17,6 @@ spec:
         image: turok/tt-foo
         ports:
         - containerPort: 4567
+        env:
+        - name: REDIS_HOST
+          value: "redis-service"

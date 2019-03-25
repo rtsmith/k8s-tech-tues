@@ -1,10 +1,18 @@
 require 'sinatra/base'
+require 'redis'
+
+def host
+  ENV["REDIS_HOST"] || "localhost"
+end
 
 class App < Sinatra::Base
-  set :bind, "0.0.0.0"
+  def redis
+    @redis ||= Redis.new host: host
+  end
 
   get '/' do
-    "AHOY HOY HOY!!"
+    redis.incr "foo-array"
+    redis.get "foo-array"
   end
 
   get 'healthz' do
