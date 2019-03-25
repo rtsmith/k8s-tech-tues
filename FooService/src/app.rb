@@ -12,7 +12,11 @@ class App < Sinatra::Base
 
   get '/' do
     redis.incr "foo-array"
-    redis.get "foo-array"
+    erb "<div> \
+          <p>Guest \# <%= redis.get 'foo-array' %></p> \
+          <p><%= request.get_header 'HTTP_HOST' %></p> \
+          <p><%= request.get_header 'HTTP_USER_AGENT' %></p> \
+        </div>"
   end
 
   get '/healthz' do
