@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: infinity
-        image: turok/infinity:latest
+        image: turok/infinity
         ports:
         - containerPort: 80
 
