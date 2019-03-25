@@ -15,7 +15,11 @@ class App < Sinatra::Base
     redis.get "foo-array"
   end
 
-  get 'healthz' do
-    '_'
+  get '/healthz' do
+    if redis.ping
+      status 200
+    else
+      status 500
+    end
   end
 end

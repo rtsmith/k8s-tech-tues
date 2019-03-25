@@ -20,3 +20,9 @@ spec:
         env:
         - name: REDIS_HOST
           value: "redis-service"
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 4567
+          initialDelaySeconds: 3
+          periodSeconds: 3
